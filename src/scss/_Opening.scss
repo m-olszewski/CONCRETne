@@ -1,0 +1,50 @@
+@import "colors";
+
+.App-opening {
+  width: 100%;
+  height: calc(100vh - 100px);
+  background-image: url("../assets/images/concrete.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .opening-box {
+    border: 10px solid $dark;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 150px 100px;
+    width: 1000px;
+    position: relative;
+
+    .opening-title {
+      font-size: 54px;
+      letter-spacing: -2px;
+      color: $dark;
+      font-weight: 700;
+
+      strong {
+        color: $golden;
+        font-family: 'Lobster', cursive;
+        letter-spacing: 7px;
+      }
+    }
+
+    .opening-text {
+      color: $dark;
+      margin: 10px;
+      font-weight: 500;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      letter-spacing: 1px;
+
+      strong {
+        letter-spacing: 5px;
+      }
+    }
+  }
+}

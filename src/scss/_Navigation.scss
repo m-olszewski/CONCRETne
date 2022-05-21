@@ -20,13 +20,18 @@
         height: 100%;
         display: flex;
         align-items: center;
+        color: $graybeige;
+      }
+
+      a:hover {
+        color: $light;
       }
     }
 
     .underline::before {
       content: '';
       position: absolute;
-      bottom: 0;
+      bottom: 1px;
       right: 0;
       width: 0;
       height: 3px;
