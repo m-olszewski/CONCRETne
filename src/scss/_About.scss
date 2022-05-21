@@ -1,0 +1,30 @@
+@import "colors";
+
+.App-about {
+  background-color: $dark;
+  display: flex;
+  flex-direction: column;
+  padding: 100px;
+  gap: 100px;
+
+  .about-article {
+    display: flex;
+    justify-content: space-between;
+
+    .about-box {
+      border: 10px solid $golden;
+      display: flex;
+      width: 500px;
+      height: 500px;
+
+      .about-text {
+        padding: 20px;
+      }
+    }
+    img {
+      width: 500px;
+      height: 500px;
+
+    }
+  }
+}
