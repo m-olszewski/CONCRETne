@@ -1,0 +1,40 @@
+@import "colors";
+
+.App-header {
+  height: 100px;
+  //box-shadow: 0 1px 20px $golden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 33px;
+
+  .logo {
+    font-size: 48px;
+    font-weight: 300;
+    letter-spacing: -7px;
+    position: relative;
+
+    strong {
+      text-transform: uppercase;
+      color: $golden;
+      font-weight: 700;
+      letter-spacing: -8px;
+    }
+  }
+
+  .logo::after {
+    content: '';
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    bottom: 14px;
+    right: -12px;
+    background-color: $golden;
+    opacity: 0;
+    transition: opacity 0.3s linear;
+  }
+
+  .logo:hover::after {
+    opacity: 1;
+  }
+}
