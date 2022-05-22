@@ -1,4 +1,5 @@
 @import "colors";
+@import "fonts";
 
 .App-about {
   width: 100%;
@@ -11,7 +12,9 @@
   padding: 100px 0;
   gap: 100px;
 
+
   .about-title {
+    font-family: $secondFont;
     font-size: 60px;
     font-weight: 300;
     letter-spacing: -7px;
@@ -23,6 +26,7 @@
       font-weight: 700;
       letter-spacing: -10px;
     }
+
     span {
       margin-left: 20px;
       letter-spacing: -4px;
@@ -40,21 +44,36 @@
     flex-direction: column;
     align-items: center;
     gap: 33px;
-    border: 1px solid $graybeige;
-    border-radius: 3px;
+    border-bottom: 1px dashed $golden;
+    border-left: 1px dashed $golden;
     padding: 15px;
     width: 350px;
     min-width: 275px;
+    position: relative;
+
 
     .about-article-title {
+      font-family: $secondFont;
+      border: 1px dashed $golden;
+      padding: 2px 6px;
+      line-height: 1.1;
       font-size: 36px;
       font-weight: 500;
       letter-spacing: 3px;
-      border-bottom: 3px solid $golden;
     }
 
     .about-article-text {
-      text-align: center;
+      //text-align: center;
+    }
+
+    .about-article-text::after {
+      content: '';
+      height: 7px;
+      width: 7px;
+      background-color: $golden;
+      position: absolute;
+      bottom: -3px;
+      right: 0;
     }
   }
 }

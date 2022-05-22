@@ -1,4 +1,5 @@
 @import "colors";
+@import "fonts";
 
 .App-product {
   background-color: $dark;
@@ -22,7 +23,7 @@
         padding: 20px;
 
         strong {
-          font-family: 'Lobster', cursive;
+          font-family: $fancyFont;
           color: $golden;
           font-size: 50px;
           letter-spacing: -2px;

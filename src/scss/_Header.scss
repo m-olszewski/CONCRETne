@@ -1,4 +1,5 @@
 @import "colors";
+@import "fonts";
 
 .App-header {
   height: 100px;
@@ -10,6 +11,7 @@
   background-color: $dark;
 
   .logo {
+    font-family: $secondFont;
     font-size: 48px;
     font-weight: 300;
     letter-spacing: -7px;

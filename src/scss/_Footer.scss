@@ -1,5 +1,57 @@
 @import "colors";
+@import "fonts";
 
 .App-footer {
   display: flex;
+  //align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  position: relative;
+  padding: 100px 0;
+
+
+  .footer-logo {
+    line-height: 0.7;
+    font-family: $secondFont;
+    font-size: 48px;
+    font-weight: 300;
+    letter-spacing: -7px;
+
+    strong {
+      text-transform: uppercase;
+      color: $golden;
+      font-weight: 700;
+      letter-spacing: -8px;
+    }
+  }
+
+  .footer-address {
+    line-height: 20px;
+
+    p:last-of-type {
+      margin-top: 20px;
+      font-weight: 500;
+    }
+
+    .footer-mail {
+      text-decoration: underline;
+    }
+  }
+
+  .footer-menu-list {
+    display: flex;
+    text-transform: uppercase;
+    gap: 20px;
+  }
+
+  .footer-menu-list li:hover {
+    color: $golden;
+    cursor: pointer;
+  }
+
+  .footer-copyright {
+    position: absolute;
+    bottom: 100px;
+    right: 0;
+  }
 }

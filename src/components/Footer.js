@@ -7,15 +7,15 @@ const Footer = () => {
         <div className="App-footer container">
             <a className="footer-logo" href="#"><strong>concret</strong>.ne</a>
             <div className="footer-address">
-                <span>
-                    CONCRET.ne Sp. z o. o.
-                    ul. Warszawska 13/7
+                <p>
+                    CONCRET.ne Sp. z o. o.<br/>
+                    ul. Warszawska 13/7<br/>
                     01-234 Warszawa
-                </span>
-                <span>
-                    sayhi@concret.ne
+                </p>
+                <p>
+                    <span className="footer-mail">sayhi@concret.ne</span><br/>
                     +48 987 654 321
-                </span>
+                </p>
             </div>
             <div>
                 <nav className="footer-menu">
@@ -28,7 +28,7 @@ const Footer = () => {
                         <li><FontAwesomeIcon icon={brands('instagram')} className="footer-menu-icons icon-ig"/></li>
                     </ul>
                 </nav>
-                <span className="footer-copyright">All rights reserver. Copyright © 2022</span>
+                <span className="footer-copyright">All rights reserved. Copyright © 2022</span>
             </div>
         </div>
     );
