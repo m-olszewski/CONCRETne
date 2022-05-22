@@ -3,6 +3,7 @@ import Header from "./Header";
 import Opening from "./Opening";
 import Product from "./Product";
 import About from "./About";
+import Footer from "./Footer";
 
 function App() {
     return (
@@ -11,6 +12,8 @@ function App() {
             <Opening/>
             <About/>
             <Product/>
+            <div className="line"/>
+            <Footer/>
         </div>
     );
 }
