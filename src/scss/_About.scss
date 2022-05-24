@@ -45,7 +45,7 @@
     align-items: center;
     gap: 33px;
     border-bottom: 1px dashed $golden;
-    border-left: 1px dashed $golden;
+    //border-left: 1px dashed $golden;
     padding: 15px;
     width: 350px;
     min-width: 275px;
@@ -61,19 +61,111 @@
       font-weight: 500;
       letter-spacing: 3px;
     }
+    .about-article-title::before {
+      content: '';
+      width: 0;
+      height: 185px;
+      border-left: 1px dashed $golden;
+      position: absolute;
+      top: 37px;
+      left: -1px;
+    }
+    .about-article-title::after {
+      content: '';
+      height: 5px;
+      width: 5px;
+      background-color: $golden;
+      position: absolute;
+      top: 35px;
+      left: -3px;
+      border-radius: 50%;
+    }
+
 
     .about-article-text {
       //text-align: center;
     }
 
-    .about-article-text::after {
+    .about-article-text::before {
       content: '';
-      height: 7px;
-      width: 7px;
+      height: 5px;
+      width: 5px;
       background-color: $golden;
       position: absolute;
       bottom: -3px;
+      left: -3px;
+      border-radius: 50%;
+    }
+    .about-article-text::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 5px solid $golden;
+      position: absolute;
+      bottom: -5px;
       right: 0;
     }
+  }
+  .about-article:first-of-type::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 5px solid $golden;
+    position: absolute;
+    top: 33px;
+    left: 20px;
+  }
+  .about-article:first-of-type::after {
+    content: '';
+    width: 20px;
+    height: 0;
+    border-top: 1px dashed $golden;
+    position: absolute;
+    top: 37px;
+    left: 0;
+  }
+  .about-article:nth-of-type(2)::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 5px solid $golden;
+    position: absolute;
+    top: 33px;
+    left: 17px;
+  }
+  .about-article:nth-of-type(2)::after {
+    content: '';
+    width: 17px;
+    height: 0;
+    border-top: 1px dashed $golden;
+    position: absolute;
+    top: 37px;
+    left: 0;
+  }
+  .about-article:last-of-type::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 5px solid $golden;
+    position: absolute;
+    top: 33px;
+    left: 111px;
+  }
+  .about-article:last-of-type::after {
+    content: '';
+    width: 111px;
+    height: 0;
+    border-top: 1px dashed $golden;
+    position: absolute;
+    top: 37px;
+    left: 0;
   }
 }
