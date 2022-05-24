@@ -1,3 +1,6 @@
+
+
+
 @import "colors";
 @import "fonts";
 
@@ -10,43 +13,302 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 
   .opening-box {
-    border: 10px solid $dark;
+    //border: 10px solid $dark;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 150px 100px;
-    width: 1000px;
-    position: relative;
+    position: absolute;
+    top: calc(50% - 175px);
+    left: 50%;
+    transform: translateX(-50%) rotate(30deg) skewY(-30deg);
+    z-index: 11;
+
+    //padding: 150px 100px;
+    //width: 1000px;
 
     .opening-title {
       font-family: $secondFont;
-      font-size: 54px;
-      letter-spacing: -2px;
-      color: $dark;
-      font-weight: 700;
+      font-size: 48px;
+      letter-spacing: -4px;
+      //color: $dark;
+      font-weight: 800;
+      background-color: $dark;
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: rgba(255,255,255,0.4) -1px 4px 4px;
+      //margin: 100px 200px;
+
 
       strong {
-        color: $golden;
+        //color: $golden;
         font-family: $fancyFont, cursive;
         letter-spacing: 7px;
+        background-color: $dark;
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: rgba(255,255,255,0.4) -1px 5px 5px;
       }
     }
 
-    .opening-text {
-      color: $dark;
-      margin: 10px;
-      font-weight: 500;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      letter-spacing: 1px;
-
-      strong {
-        letter-spacing: 5px;
-      }
-    }
+    //.opening-text {
+    //  color: $dark;
+    //  margin: 10px;
+    //  font-weight: 500;
+    //  position: absolute;
+    //  bottom: 0;
+    //  right: 0;
+    //  letter-spacing: 1px;
+    //
+    //  strong {
+    //    letter-spacing: 5px;
+    //  }
+    //}
   }
+}
+
+.maindiv {
+  //position: relative;
+  //width: 800px;
+  //height: 600px;
+  //background-color: white;
+  //margin: 0 auto;
+  position: relative;
+  //width: 800px;
+  min-width: 800px;
+  height: 100%;
+
+  .front-left,
+  .front-right,
+  .rear-left,
+  .rear-right,
+  .front-left1,
+  .front-right1,
+  .rear-left1,
+  .rear-right1,
+  .down-left,
+  .down-right,
+  .down-front,
+  .down-rear,
+  .down-left1,
+  .down-right1,
+  .down-front1,
+  .down-rear1,
+  .up-right,
+  .up-front,
+  .up-top,
+  .top-top,
+  .top-right,
+.top-front
+  {
+    background-color: $dark;
+    //border: 1px solid black;
+    position: absolute;
+  }
+
+  .front-left {
+    left: 80px;
+    top: 50%;
+    width: 10px;
+    height: 200px;
+    z-index: 2;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+
+  }
+  .front-right {
+    right: 200px;
+    top: 50%;
+    width: 10px;
+    height: 200px;
+    z-index: 10;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+
+  }
+  .rear-left {
+    left: 25%;
+    top: calc(25% + 5px);
+    width: 10px;
+    height: 200px;
+  }
+  .rear-right {
+    right: 10%;
+    top: calc(25% + 5px);
+    width: 10px;
+    height: 200px;
+    z-index: 7;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+
+
+  }
+
+  .front-left1 {
+    left: calc(10% + 10px);
+    top: calc(50% - 5px);
+    transform: skewY(-60deg);
+    width: 7px;
+    height: 200px;
+    z-index: 2;
+  }
+  .front-right1 {
+    right: calc(25% - 7px);
+    top: calc(50% - 5px);
+    transform: skewY(-60deg);
+    width: 7px;
+    height: 200px;
+    z-index: 9;
+
+
+  }
+  .rear-left1 {
+    left: calc(25% + 10px);
+    top: calc(25%);
+    transform: skewY(-60deg);
+    width: 7px;
+    height: 200px;
+
+  }
+  .rear-right1 {
+    right: calc(10% - 7px);
+    top: calc(25%);
+    transform: skewY(-60deg);
+    width: 7px;
+    height: 200px;
+
+  }
+
+  .down-left {
+    left: calc(10% + 17px);
+    top: calc(50% + 79px);
+    transform: skewY(-60deg) ;
+    width: 114px;
+    height: 12px;
+    z-index: 8;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  }
+  .down-right {
+    right: calc(10% - 1px);
+    top: calc(50% + 79px);
+    transform: skewY(-60deg) ;
+    width: 114px;
+    height: 12px;
+    z-index: 8;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  }
+
+  .down-front {
+    top: calc(50% + 190px);
+    left: calc(10% + 10px);
+    width: calc(65% - 20px);
+    height: 10px;
+    z-index: 2;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  }
+
+  .down-rear {
+    top: calc(25% + 195px);
+    left: calc(25% + 10px);
+    width: calc(65% - 20px);
+    height: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+  }
+  .down-left1 {
+    left: calc(25% - 56px);
+    top: calc(50% - 33px);
+    transform:  rotate(30deg) skewY(-30deg);
+    width: 8px;
+    height: 230px;
+
+  }
+  .down-right1 {
+    right: calc(25% - 62px);
+    top: calc(50% - 33px);
+    transform:  rotate(30deg) skewY(-30deg);
+    width: 8px;
+    height: 230px;
+    z-index: 8;
+  }
+
+  .down-front1 {
+    top: calc(50% + 181px);
+    left: calc(10% + 46px);
+    width: calc(65% - 87px);
+    height: 10px;
+    transform:   rotate(30deg) skewY(-30deg);
+    z-index: 9;
+  }
+
+  .down-rear1 {
+    top: calc(25% + 186px);
+    left: calc(25% + 47px);
+    width: calc(65% - 87px);
+    height: 10px;
+    transform:   rotate(30deg) skewY(-30deg);
+  }
+
+
+  .up-right {
+    top: calc(35% + 9px);
+    right: calc(10% - 7px);
+    width: 127px;
+    height: 10px;
+    transform: skewY(-60deg);
+    z-index: 9;
+  }
+  .up-front{
+    top: calc(50% - 10px);
+    left: calc(10%);
+    width: calc(65%);
+    height: 10px;
+    z-index: 9;
+
+  }
+  .top-right {
+    top: calc(35% - 17px);
+    right: calc(10% - 7px);
+    width: 127px;
+    height: 26px;
+    transform: skewY(-60deg);
+    z-index: 9;
+    background-image: url("../assets/images/marble.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+  .top-front{
+    top: calc(50% - 34px);
+    left: calc(10%);
+    width: calc(65%);
+    height: 25px;
+    z-index: 9;
+    background-image: url("../assets/images/marble.jpg");
+    background-position: center;
+    background-size: cover;
+
+  }
+
+  .top-top {
+    top: calc(25% - 59px);
+    left: calc(25% - 21px);
+    width: 450px;
+    height: 255px;
+    z-index: 9;
+    transform: rotate(30deg) skewY(-30deg);
+    background-image: url("../assets/images/marble.jpg");
+    background-position: center;
+    background-size: cover;
+
+  }
+
+
+
 }
