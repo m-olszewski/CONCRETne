@@ -1,6 +1,6 @@
-import '../scss/_Product.scss'
+import '../scss/_Material.scss'
 
-const Product = () => {
+const Material = () => {
     return (
         <div className="App-product container">
             <article className="product-article">
@@ -22,4 +22,4 @@ const Product = () => {
     );
 };
 
-export default Product;
+export default Material;

@@ -21,9 +21,9 @@ const Footer = () => {
                 <nav className="footer-menu">
                     <ul className="footer-menu-list">
                         <li><a href="#about"><span>o nas</span></a></li>
-                        <li><a href="#products"><span>produkty</span></a></li>
+                        <li><a href="#materials"><span>materiały</span></a></li>
+                        <li><a href="#specs"><span>specyfikacja</span></a></li>
                         <li><a href="#order"><span>zamów</span></a></li>
-                        <li><a href="#contact"><span>kontakt</span></a></li>
                         <li><FontAwesomeIcon icon={brands('facebook')} className="footer-menu-icons icon-fb"/></li>
                         <li><FontAwesomeIcon icon={brands('instagram')} className="footer-menu-icons icon-ig"/></li>
                     </ul>

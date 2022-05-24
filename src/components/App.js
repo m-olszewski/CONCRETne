@@ -1,9 +1,10 @@
 import '../scss/_App.scss';
 import Header from "./Header";
 import Opening from "./Opening";
-import Product from "./Product";
+import Material from "./Material";
 import About from "./About";
 import Footer from "./Footer";
+import Specs from "./Specs";
 
 function App() {
     return (
@@ -11,7 +12,9 @@ function App() {
             <Header/>
             <Opening/>
             <About/>
-            <Product/>
+            <Material/>
+            <div className="line"/>
+            <Specs/>
             <div className="line"/>
             <Footer/>
         </div>

@@ -7,9 +7,9 @@ const Navigation = () => {
         <nav className="menu">
             <ul className="menu-list">
                 <li className="underline"><a href="#about"><span>o nas</span></a></li>
-                <li className="underline"><a href="#products"><span>produkty</span></a></li>
+                <li className="underline"><a href="#materials"><span>materiały</span></a></li>
+                <li className="underline"><a href="#specs"><span>specyfikacja</span></a></li>
                 <li className="underline"><a href="#order"><span>zamów</span></a></li>
-                <li className="underline"><a href="#contact"><span>kontakt</span></a></li>
                 <li><FontAwesomeIcon icon={brands('facebook')} className="menu-icons icon-fb"  /></li>
                 <li><FontAwesomeIcon icon={brands('instagram')} className="menu-icons icon-ig" /></li>
             </ul>

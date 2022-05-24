@@ -16,6 +16,8 @@
     font-size: 48px;
     font-weight: 300;
     letter-spacing: -7px;
+    flex-grow: 1;
+
 
     strong {
       text-transform: uppercase;
@@ -26,6 +28,7 @@
   }
 
   .footer-address {
+    flex-grow: 7;
     line-height: 20px;
 
     p:last-of-type {
@@ -42,6 +45,8 @@
     display: flex;
     text-transform: uppercase;
     gap: 20px;
+
+
   }
 
   .footer-menu-list li:hover {
