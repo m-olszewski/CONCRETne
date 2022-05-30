@@ -5,81 +5,119 @@
   padding: 100px 0;
   background-color: $dark;
   display: flex;
-  flex-direction: column;
-  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-image: url("../assets/images/table6.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
 
-  .order-title {
+  .order-text {
     font-family: $secondFont;
     font-size: 60px;
     font-weight: 300;
-    letter-spacing: -6px;
-  }
+    letter-spacing: -4px;
+    z-index: 2;
+    width: 550px;
+    text-align: center;
+    cursor: pointer;
+    border: 10px solid $golden;
+    padding: 20px 30px;
 
-  .order-main {
-    display: flex;
+    p {
 
-
-    .order-left {
-      width: 50%;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-
-      .order-text {
-
-      }
-    }
-
-    .order-right {
-      width: 50%;
-
-      .order-form {
-        display: flex;
-        flex-direction: column;
-        gap: 50px;
-
-        .order-form-up {
-          display: flex;
-          //flex-direction: column;
-          flex-wrap: wrap;
-
-          label {
-            width: 50%;
-
-            select {
-              border-bottom: 1px solid $graybeige;
-              margin: 5px;
-            }
-          }
-        }
-
-        .order-form-down {
-          display: flex;
-          flex-direction: column;
-
-
-          input {
-            border-bottom: 1px solid $graybeige;
-            margin: 10px 0;
-            width: 50%;
-          }
-        }
-        .order-form-btn {
-          border: 1px dashed $golden;
-          padding: 20px 30px;
-          align-self: center;
-          cursor: pointer;
-        }
-
-        .order-form-title {
-          font-family: $secondFont;
-          //border: 1px dashed $golden;
-          font-size: 36px;
-          font-weight: 300;
-          letter-spacing: -1px;
-          width: 100%;
-        }
-      }
     }
   }
+
+  .order-text:hover {
+    p {
+      color: $golden;
+    }
+  }
+
+
+  //
+  //  .order-main {
+  //    display: flex;
+  //
+  //
+  //    .order-left {
+  //      width: 50%;
+  //      display: flex;
+  //      flex-direction: column;
+  //      gap: 20px;
+  //
+  //      .order-text {
+  //
+  //      }
+  //    }
+  //
+  //    .order-right {
+  //      width: 50%;
+  //
+  //      .order-form {
+  //        display: flex;
+  //        flex-direction: column;
+  //        gap: 50px;
+  //
+  //        .order-form-up {
+  //          display: flex;
+  //          //flex-direction: column;
+  //          flex-wrap: wrap;
+  //
+  //          label {
+  //            width: 50%;
+  //
+  //            select {
+  //              border-bottom: 1px solid $graybeige;
+  //              margin: 5px;
+  //            }
+  //          }
+  //        }
+  //
+  //        .order-form-down {
+  //          display: flex;
+  //          flex-direction: column;
+  //
+  //
+  //          input {
+  //            border-bottom: 1px solid $graybeige;
+  //            margin: 10px 0;
+  //            width: 50%;
+  //          }
+  //        }
+  //
+  //        .order-form-btn {
+  //          border: 1px dashed $golden;
+  //          padding: 20px 30px;
+  //          align-self: center;
+  //          cursor: pointer;
+  //        }
+  //
+  //        .order-form-title {
+  //          font-family: $secondFont;
+  //          //border: 1px dashed $golden;
+  //          font-size: 36px;
+  //          font-weight: 300;
+  //          letter-spacing: -1px;
+  //          width: 100%;
+  //        }
+  //      }
+  //    }
+  //  }
+
+
+}
+
+.App-order::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  opacity: 0.6;
 }

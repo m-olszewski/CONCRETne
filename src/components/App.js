@@ -1,3 +1,4 @@
+import React from "react";
 import '../scss/_App.scss';
 import Header from "./Header";
 import Opening from "./Opening";
@@ -12,12 +13,12 @@ function App() {
         <div className="App">
             <Header/>
             <Opening/>
-            <About/>
-            <Material/>
+            <About id="about"/>
+            <Material id="materials"/>
             <div className="line"/>
-            <Specs/>
+            <Specs id="specs"/>
             <div className="line"/>
-            <Order/>
+            <Order id="order"/>
             <div className="line"/>
             <Footer/>
         </div>

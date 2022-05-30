@@ -1,10 +1,13 @@
 import '../scss/_Specs.scss'
+import {Element} from 'react-scroll';
 
 const Specs = () => {
     return (
-        <div className="App-specs">
-            Specyfikacja, dostępne wymiary, sposoby wykończenia
-        </div>
+        <Element name="specs">
+            <div className="App-specs">
+                Specyfikacja, dostępne wymiary, sposoby wykończenia
+            </div>
+        </Element>
     );
 };
 

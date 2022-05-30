@@ -1,6 +1,7 @@
 import '../scss/_Footer.scss';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {brands} from "@fortawesome/fontawesome-svg-core/import.macro";
+import {Link} from "react-scroll";
 
 const Footer = () => {
     return (
@@ -20,10 +21,10 @@ const Footer = () => {
             <div>
                 <nav className="footer-menu">
                     <ul className="footer-menu-list">
-                        <li><a href="#about"><span>o nas</span></a></li>
-                        <li><a href="#materials"><span>materiały</span></a></li>
-                        <li><a href="#specs"><span>specyfikacja</span></a></li>
-                        <li><a href="#order"><span>zamów</span></a></li>
+                        <li><Link to="about">o nas</Link></li>
+                        <li><Link to="materials">materiały</Link></li>
+                        <li><Link to="specs">specyfikacja</Link></li>
+                        <li><Link to="order">zamów</Link></li>
                         <li><FontAwesomeIcon icon={brands('facebook')} className="footer-menu-icons icon-fb"/></li>
                         <li><FontAwesomeIcon icon={brands('instagram')} className="footer-menu-icons icon-ig"/></li>
                     </ul>

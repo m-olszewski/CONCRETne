@@ -1,15 +1,16 @@
 import '../scss/_Navigation.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { solid, regular, brands } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
+import { brands } from '@fortawesome/fontawesome-svg-core/import.macro' // <-- import styles to be used
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const Navigation = () => {
     return (
         <nav className="menu">
             <ul className="menu-list">
-                <li className="underline"><a href="#about"><span>o nas</span></a></li>
-                <li className="underline"><a href="#materials"><span>materiały</span></a></li>
-                <li className="underline"><a href="#specs"><span>specyfikacja</span></a></li>
-                <li className="underline"><a href="#order"><span>zamów</span></a></li>
+                <li className="underline"><Link to="about">o nas</Link></li>
+                <li className="underline"><Link to="materials">materiały</Link></li>
+                <li className="underline"><Link to="specs">specyfikacja</Link></li>
+                <li className="underline"><Link to="order">zamów</Link></li>
                 <li><FontAwesomeIcon icon={brands('facebook')} className="menu-icons icon-fb"  /></li>
                 <li><FontAwesomeIcon icon={brands('instagram')} className="menu-icons icon-ig" /></li>
             </ul>

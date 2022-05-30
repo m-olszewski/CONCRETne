@@ -18,7 +18,7 @@
       "sizes": "384x384"
     }
   ],
-  "start_url": "./src/assets/icon",
+  "start_url": "./src/assets/icon/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
