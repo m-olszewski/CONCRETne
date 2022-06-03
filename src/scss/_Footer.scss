@@ -3,12 +3,10 @@
 
 .App-footer {
   display: flex;
-  //align-items: center;
   justify-content: space-between;
   font-size: 14px;
   position: relative;
   padding: 100px 0;
-
 
   .footer-logo {
     line-height: 0.7;
@@ -17,7 +15,6 @@
     font-weight: 300;
     letter-spacing: -7px;
     flex-grow: 1;
-
 
     strong {
       text-transform: uppercase;
@@ -45,8 +42,6 @@
     display: flex;
     text-transform: uppercase;
     gap: 20px;
-
-
   }
 
   .footer-menu-list li:hover {

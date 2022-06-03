@@ -1,75 +1,105 @@
 import React from 'react';
+import '../scss/_Form.scss'
 
-
-
-const Form = () => {
-
+const Input = (props) => {
     return (
-        <form className="order-form">
-            <div className="order-form-up">
-                <h2 className="order-form-title">Specyfikacja stolika</h2>
-                <label>Szerokość:
-                    <select>
-                        <option>40 cm</option>
-                        <option>50 cm</option>
-                        <option>60 cm</option>
-                    </select>
-                </label>
-                <label>Długość:
-                    <select>
-                        <option>60 cm</option>
-                        <option>70 cm</option>
-                        <option>80 cm</option>
-                    </select>
-                </label>
-                <label>Wysokość:
-                    <select>
-                        <option>35 cm</option>
-                        <option>40 cm</option>
-                        <option>45 cm</option>
-                    </select>
-                </label>
-                <label>Materiał:
-                    <select>
-                        <option>Marmur</option>
-                        <option>Beton</option>
-                        <option>Dąb</option>
-                    </select>
-                </label>
-                <label>Grubość blatu:
-                    <select>
-                        <option>1 cm</option>
-                        <option>2 cm</option>
-                        <option>3 cm</option>
-                        <option>4 cm</option>
-                        <option>5 cm</option>
-                    </select>
-                </label>
-                <label>Kolor nóg:
-                    <select>
-                        <option>czarny</option>
-                        <option>biały</option>
-                        <option>złoty</option>
-                        <option>chrom</option>
-                    </select>
-                </label>
-            </div>
-            <div className="order-form-down">
-                <h2 className="order-form-title">Dane i adres</h2>
-
-                <input type="text" placeholder="imię"/>
-                <input type="text" placeholder="nazwisko"/>
-                <input type="email" placeholder="e-mail"/>
-                <input type="text" placeholder="nr tel"/>
-                <input type="text" placeholder="miasto"/>
-                <input type="text" placeholder="ulica"/>
-                <input type="text" placeholder="kod pocztowy"/>
-
-            </div>
-            <input className="order-form-btn" type="submit" value="zamów"/>
-
-        </form>
+        <div className="inputbox-content">
+            <input id={props.id} name={props.name} type={props.type} required/>
+            <label htmlFor={props.id}>{props.labelText}</label>
+            <span className="underline"></span>
+        </div>
     );
 };
 
-export default Form;
+
+export const FormLeft = () => {
+    return (
+        <>
+            <h2 className="order-form-title">Specyfikacja stolika</h2>
+
+            <div className="selectbox-content">
+                <label>Szerokość stolika:</label>
+                <select>
+                    <option>wybierz</option>
+                    <option>40 cm</option>
+                    <option>50 cm</option>
+                    <option>60 cm</option>
+                </select>
+            </div>
+
+            <div className="selectbox-content">
+                <label>Długość stolika: </label>
+                <select>
+                    <option>wybierz</option>
+                    <option>60 cm</option>
+                    <option>70 cm</option>
+                    <option>80 cm</option>
+                </select>
+            </div>
+
+            <div className="selectbox-content">
+                <label>Wysokość stolika: </label>
+                <select>
+                    <option>wybierz</option>
+                    <option>35 cm</option>
+                    <option>40 cm</option>
+                    <option>45 cm</option>
+                </select>
+            </div>
+
+            <div className="selectbox-content">
+                <label>Materiał blatu: </label>
+                <select>
+                    <option>wybierz</option>
+                    <option>Marmur</option>
+                    <option>Beton</option>
+                    <option>Dąb</option>
+                </select>
+            </div>
+
+            <div className="selectbox-content">
+                <label>Grubość blatu: </label>
+                <select>
+                    <option>wybierz</option>
+                    <option>1 cm</option>
+                    <option>2 cm</option>
+                    <option>3 cm</option>
+                    <option>4 cm</option>
+                    <option>5 cm</option>
+                </select>
+            </div>
+
+            <div className="selectbox-content">
+                <label>Kolor nóg: </label>
+                <select>
+                    <option>wybierz</option>
+                    <option>czarny</option>
+                    <option>biały</option>
+                    <option>złoty</option>
+                    <option>chrom</option>
+                </select>
+            </div>
+
+        </>
+    );
+};
+
+
+const FormRight = () => {
+
+    return (
+        <>
+            <h2 className="order-form-title">Dane i adres</h2>
+
+            <Input id={"name"} name={"name"} type={"text"} labelText={"Imię"}/>
+            <Input id={"surname"} name={"surname"} type={"text"} labelText={"Nazwisko"}/>
+            <Input id={"email"} name={"email"} type={"email"} labelText={"E-Mail"}/>
+            <Input id={"phone"} name={"phone"} type={"text"} labelText={"Numer telefonu"}/>
+            <Input id={"city"} name={"city"} type={"text"} labelText={"Miasto"}/>
+            <Input id={"street"} name={"street"} type={"text"} labelText={"Ulica"}/>
+            <Input id={"postcode"} name={"postcode"} type={"text"} labelText={"Kod pocztowy"}/>
+        </>
+    );
+};
+
+export default FormRight;

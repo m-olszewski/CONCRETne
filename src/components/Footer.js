@@ -1,16 +1,16 @@
 import '../scss/_Footer.scss';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {brands} from "@fortawesome/fontawesome-svg-core/import.macro";
-import {Link} from "react-scroll";
+import {animateScroll as scroll, Link} from "react-scroll";
 
 const Footer = () => {
     return (
         <div className="App-footer container">
-            <a className="footer-logo" href="#"><strong>concret</strong>.ne</a>
+            <a onClick={scroll.scrollToTop} className="footer-logo" href="#"><strong>concret</strong>.ne</a>
             <div className="footer-address">
                 <p>
                     CONCRET.ne Sp. z o. o.<br/>
-                    ul. Warszawska 13/7<br/>
+                    ul. Wymyślona 13/7<br/>
                     01-234 Warszawa
                 </p>
                 <p>

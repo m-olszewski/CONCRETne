@@ -45,7 +45,6 @@
     align-items: center;
     gap: 33px;
     border-bottom: 1px dashed $golden;
-    //border-left: 1px dashed $golden;
     padding: 15px;
     width: 350px;
     min-width: 275px;
@@ -61,6 +60,7 @@
       font-weight: 500;
       letter-spacing: 3px;
     }
+
     .about-article-title::before {
       content: '';
       width: 0;
@@ -70,6 +70,7 @@
       top: 37px;
       left: -1px;
     }
+
     .about-article-title::after {
       content: '';
       height: 5px;
@@ -79,11 +80,6 @@
       top: 35px;
       left: -3px;
       border-radius: 50%;
-    }
-
-
-    .about-article-text {
-      //text-align: center;
     }
 
     .about-article-text::before {
@@ -96,6 +92,7 @@
       left: -3px;
       border-radius: 50%;
     }
+
     .about-article-text::after {
       content: '';
       width: 0;
@@ -108,6 +105,7 @@
       right: 0;
     }
   }
+
   .about-article:first-of-type::before {
     content: '';
     width: 0;
@@ -119,6 +117,7 @@
     top: 33px;
     left: 20px;
   }
+
   .about-article:first-of-type::after {
     content: '';
     width: 20px;
@@ -128,6 +127,7 @@
     top: 37px;
     left: 0;
   }
+
   .about-article:nth-of-type(2)::before {
     content: '';
     width: 0;
@@ -139,6 +139,7 @@
     top: 33px;
     left: 17px;
   }
+
   .about-article:nth-of-type(2)::after {
     content: '';
     width: 17px;
@@ -148,6 +149,7 @@
     top: 37px;
     left: 0;
   }
+
   .about-article:last-of-type::before {
     content: '';
     width: 0;
@@ -159,6 +161,7 @@
     top: 33px;
     left: 111px;
   }
+
   .about-article:last-of-type::after {
     content: '';
     width: 111px;
