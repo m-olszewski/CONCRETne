@@ -1,0 +1,169 @@
+@import "colors";
+@import "fonts";
+
+.App-basket {
+  background-color: $dark;
+  display: flex;
+  flex-direction: column;
+
+
+  .basket-header {
+    height: 100px;
+    display: flex;
+    align-items: center;
+
+    .back-button {
+      position: relative;
+      transition: all 0.25s linear;
+      border-bottom: none;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .back-button:before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: $golden;
+      position: absolute;
+      left: 0;
+      bottom: -3px; /* this is to match where the border is */
+      transform-origin: left;
+      transform: scale(0);
+      transition: 0.25s linear;
+      /*   will-change: transform; */
+    }
+
+    .back-button:hover:before {
+      transform: scale(1);
+    }
+
+    .separator {
+      font-size: 8px;
+      margin: 0 7px;
+    }
+    .actually {
+      margin-top: 5px;
+      font-size: 12px;
+      border-bottom: 2px solid $golden;
+    }
+  }
+
+  .basket-title {
+    font-size: 30px;
+    font-family: $secondFont;
+    font-weight: 400;
+    letter-spacing: -1px;
+    color: $golden;
+
+    span {
+      color: $light;
+    }
+  }
+
+  .basket-main {
+    padding-top: 50px;
+
+    .basket-table {
+      width: 100%;
+
+      thead {
+        border-bottom: 1px solid rgba(221, 208, 194, 0.07);
+
+        tr {
+          text-align: center;
+
+          th {
+            padding: 20px;
+
+          }
+        }
+      }
+
+      tbody {
+        tr {
+          text-align: center;
+
+          td {
+            padding: 20px;
+          }
+
+          //.basket-table-specs {
+          //  //width: 60%;
+          //  display: flex;
+          //  padding: 0 80px;
+          //  gap: 80px;
+          //  align-items: center;
+
+            .basket-table-img {
+              background-color: $graybeige;
+              width: 125px;
+              height: 125px;
+            }
+
+            .specifications {
+              //display: flex;
+              //flex-direction: column;
+              //align-items: flex-start;
+              //gap: 20px;
+              vertical-align: middle;
+              text-align: left;
+
+              .spec-title {
+                border-bottom: 1px solid $light;
+                margin-bottom: 20px;
+                display: inline-block;
+
+                 strong {
+                  color: $golden;
+                }
+              }
+
+              .spec-specs {
+                display: flex;
+                gap: 100px;
+
+                .spec-group {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: flex-start;
+                  gap: 7px;
+
+                  span {
+                    padding: 0;
+                    font-size: 12px;
+                  }
+                }
+              }
+            }
+
+          .basket-table-price {
+            vertical-align: middle;
+          }
+
+          .basket-table-actions {
+            vertical-align: middle;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+
+  .basket-down {
+    display: flex;
+    flex-direction: column;
+    align-self: end;
+    width: 250px;
+    padding: 50px;
+
+    .basket-userreg-btn {
+      text-align: center;
+      width: 100%;
+      padding: 10px 0;
+      border: 1px solid rgba(221, 208, 194, 0.07);
+      cursor: pointer;
+    }
+  }
+}

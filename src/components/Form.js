@@ -1,5 +1,6 @@
 import React from 'react';
 import '../scss/_Form.scss'
+import {Link, useNavigate} from "react-router-dom";
 
 const Input = (props) => {
     return (
@@ -12,14 +13,14 @@ const Input = (props) => {
 };
 
 
-export const FormLeft = () => {
+export const FormTable = () => {
     return (
         <>
             <h2 className="order-form-title">Specyfikacja stolika</h2>
 
             <div className="selectbox-content">
-                <label>Szerokość stolika:</label>
-                <select>
+                <label for="width">Szerokość stolika:</label>
+                <select id="width">
                     <option>wybierz</option>
                     <option>40 cm</option>
                     <option>50 cm</option>
@@ -85,10 +86,17 @@ export const FormLeft = () => {
 };
 
 
-const FormRight = () => {
+export const FormPersonal = () => {
+    const navigate = useNavigate();
 
+    const handleSubmit = event => {
+        event.preventDefault();
+
+        // 👇️ redirect to /contacts
+        navigate('/order/basket/summary');
+    };
     return (
-        <>
+        <form onSubmit={handleSubmit}>
             <h2 className="order-form-title">Dane i adres</h2>
 
             <Input id={"name"} name={"name"} type={"text"} labelText={"Imię"}/>
@@ -98,8 +106,11 @@ const FormRight = () => {
             <Input id={"city"} name={"city"} type={"text"} labelText={"Miasto"}/>
             <Input id={"street"} name={"street"} type={"text"} labelText={"Ulica"}/>
             <Input id={"postcode"} name={"postcode"} type={"text"} labelText={"Kod pocztowy"}/>
-        </>
+            <div className="userreg-down">
+               <input type="submit"  className="userreg-confirmed-btn" id="btn" value="Podsumowanie"/>
+                   {/*<Link to="/order/basket/summary">Podsumowanie</Link>*/}
+
+            </div>
+        </form>
     );
 };
-
-export default FormRight;
