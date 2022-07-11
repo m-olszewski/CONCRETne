@@ -1,116 +1,124 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../scss/_Form.scss'
-import {Link, useNavigate} from "react-router-dom";
-
-const Input = (props) => {
-    return (
-        <div className="inputbox-content">
-            <input id={props.id} name={props.name} type={props.type} required/>
-            <label htmlFor={props.id}>{props.labelText}</label>
-            <span className="underline"></span>
-        </div>
-    );
-};
-
 
 export const FormTable = () => {
+    const [specsParams, setSpecsParams] = useState({
+        width: '',
+        length: '',
+        height: '',
+        material: '',
+        thickness: '',
+        color: ''
+    });
+
+    // const [width, setWidth] = useState("");
+    // const handleWidthChange = (e) => {
+    //     setWidth(e.target.value);
+    // };
+    // const [length, setLength] = useState("");
+    // const handleLengthChange = (e) => {
+    //     setLength(e.target.value);
+    // };
+    // const [height, setHeight] = useState("");
+    // const handleHeightChange = (e) => {
+    //     setHeight(e.target.value);
+    // };
+    // const [material, setMaterial] = useState("");
+    // const handleMaterialChange = (e) => {
+    //     setMaterial(e.target.value);
+    //     setDisable(false);
+    //     if (e.target.value === 'Marmur') {
+    //         setDisable(true);
+    //     } else {
+    //         setDisable(false);
+    //     }
+    // };
+    // const [thickness, setThickness] = useState("");
+    // const handleThicknessChange = (e) => {
+    //     setThickness(e.target.value);
+    // };
+    // const [color, setColor] = useState("");
+    // const handleColorChange = (e) => {
+    //     setColor(e.target.value);
+    // };
+
+    const handleChange = (event) => {
+        const {name, value} = event.target;
+        setSpecsParams(prevParams => ({
+            ...prevParams,
+            [name]: value,
+        }));
+    }
+
+    const paramsGeneral = {...specsParams}
+    console.log(paramsGeneral.material)
+
     return (
         <>
             <h2 className="order-form-title">Specyfikacja stolika</h2>
 
             <div className="selectbox-content">
-                <label for="width">Szerokość stolika:</label>
-                <select id="width">
+                <label htmlFor="width">Szerokość stolika:</label>
+                <select id="width" name="width" value={specsParams.width} onChange={handleChange}>
                     <option>wybierz</option>
-                    <option>40 cm</option>
-                    <option>50 cm</option>
-                    <option>60 cm</option>
+                    <option value="40">40 cm</option>
+                    <option value="50">50 cm</option>
+                    <option value="60">60 cm</option>
                 </select>
             </div>
 
             <div className="selectbox-content">
-                <label>Długość stolika: </label>
-                <select>
+                <label htmlFor="length">Długość stolika:</label>
+                <select id="length" name="length" value={specsParams.length} onChange={handleChange}>
                     <option>wybierz</option>
-                    <option>60 cm</option>
-                    <option>70 cm</option>
-                    <option>80 cm</option>
+                    <option value="60">60 cm</option>
+                    <option value="70">70 cm</option>
+                    <option value="80">80 cm</option>
                 </select>
             </div>
 
             <div className="selectbox-content">
-                <label>Wysokość stolika: </label>
-                <select>
+                <label htmlFor="height">Wysokość stolika: </label>
+                <select id="height" name="height" value={specsParams.height} onChange={handleChange}>
                     <option>wybierz</option>
-                    <option>35 cm</option>
-                    <option>40 cm</option>
-                    <option>45 cm</option>
+                    <option value="35">35 cm</option>
+                    <option value="40">40 cm</option>
+                    <option value="45">45 cm</option>
                 </select>
             </div>
 
             <div className="selectbox-content">
-                <label>Materiał blatu: </label>
-                <select>
+                <label htmlFor="material">Materiał blatu: </label>
+                <select id="material" name="material" value={specsParams.material} onChange={handleChange}>
                     <option>wybierz</option>
-                    <option>Marmur</option>
-                    <option>Beton</option>
-                    <option>Dąb</option>
+                    <option value="Marmur">Marmur</option>
+                    <option value="Beton">Beton</option>
+                    <option value="Dąb">Dąb</option>
                 </select>
             </div>
 
             <div className="selectbox-content">
-                <label>Grubość blatu: </label>
-                <select>
+                <label htmlFor="thickness">Grubość blatu: </label>
+                <select id="thickness" name="thickness" value={specsParams.thickness} onChange={handleChange}>
                     <option>wybierz</option>
-                    <option>1 cm</option>
-                    <option>2 cm</option>
-                    <option>3 cm</option>
-                    <option>4 cm</option>
-                    <option>5 cm</option>
+                    <option value="1" disabled={specsParams.material === 'Marmur' ? true : false}>1 cm</option>
+                    <option value="2">2 cm</option>
+                    <option value="3">3 cm</option>
+                    <option value="4" disabled={specsParams.material === 'Marmur' ? true : false}>4 cm</option>
+                    <option value="5" disabled={specsParams.material === 'Marmur' ? true : false}>5 cm</option>
                 </select>
             </div>
 
             <div className="selectbox-content">
-                <label>Kolor nóg: </label>
-                <select>
+                <label htmlFor="color">Kolor nóg: </label>
+                <select id="color" name="color" value={specsParams.color} onChange={handleChange}>
                     <option>wybierz</option>
-                    <option>czarny</option>
-                    <option>biały</option>
-                    <option>złoty</option>
-                    <option>chrom</option>
+                    <option value="czarny">czarny</option>
+                    <option value="biały">biały</option>
+                    <option value="złoty">złoty</option>
+                    <option value="chrom">chrom</option>
                 </select>
             </div>
-
         </>
-    );
-};
-
-
-export const FormPersonal = () => {
-    const navigate = useNavigate();
-
-    const handleSubmit = event => {
-        event.preventDefault();
-
-        // 👇️ redirect to /contacts
-        navigate('/order/basket/summary');
-    };
-    return (
-        <form onSubmit={handleSubmit}>
-            <h2 className="order-form-title">Dane i adres</h2>
-
-            <Input id={"name"} name={"name"} type={"text"} labelText={"Imię"}/>
-            <Input id={"surname"} name={"surname"} type={"text"} labelText={"Nazwisko"}/>
-            <Input id={"email"} name={"email"} type={"email"} labelText={"E-Mail"}/>
-            <Input id={"phone"} name={"phone"} type={"text"} labelText={"Numer telefonu"}/>
-            <Input id={"city"} name={"city"} type={"text"} labelText={"Miasto"}/>
-            <Input id={"street"} name={"street"} type={"text"} labelText={"Ulica"}/>
-            <Input id={"postcode"} name={"postcode"} type={"text"} labelText={"Kod pocztowy"}/>
-            <div className="userreg-down">
-               <input type="submit"  className="userreg-confirmed-btn" id="btn" value="Podsumowanie"/>
-                   {/*<Link to="/order/basket/summary">Podsumowanie</Link>*/}
-
-            </div>
-        </form>
     );
 };

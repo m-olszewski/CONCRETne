@@ -39,6 +39,17 @@
     .back-button:hover:before {
       transform: scale(1);
     }
+
+    .separator {
+      font-size: 8px;
+      margin: 0 7px;
+    }
+
+    .actually {
+      margin-top: 5px;
+      font-size: 12px;
+      border-bottom: 2px solid $golden;
+    }
   }
 
   .order-left-title {
@@ -54,9 +65,9 @@
     font-weight: 300;
   }
 
-  //.order-form {
-  //  display: flex;
-  //  flex-direction: column;
+  .order-form {
+    display: flex;
+    flex-direction: column;
   //  margin-top: 100px;
 
   .order-options {
@@ -100,7 +111,7 @@
     }
 
   }
-
+}
   .order-down {
     display: flex;
     flex-direction: column;

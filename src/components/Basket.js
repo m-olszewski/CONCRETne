@@ -33,11 +33,11 @@ const Basket = () => {
 
 
                         <td className="specifications">
-                            <span className="spec-title"><strong>Stolik kawowy</strong> __marble__ __black__</span>
+                            <span className="spec-title"><strong>Stolik kawowy</strong>  __marble__ __black__</span>
 
                             <div className="spec-specs">
                                 <div className="spec-group">
-                                    <span>Szerokość: __width__</span>
+                                    <span>Szerokość: </span>
                                     <span>Długość: __length__</span>
                                     <span>Wysokość: __height__</span>
                                 </div>

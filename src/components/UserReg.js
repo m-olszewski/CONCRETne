@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormPersonal} from "./Form";
+import {FormPersonal} from "./FormPersonal";
 import {Link} from "react-router-dom";
 import '../scss/_Userreg.scss'
 

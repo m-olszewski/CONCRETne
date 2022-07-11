@@ -138,7 +138,7 @@
   }
 
   .summary-main-2 {
-    padding: 20px ;
+    padding: 20px;
     border-bottom: 1px solid rgba(221, 208, 194, 0.07);
 
     .summary-address {
@@ -170,14 +170,13 @@
               cursor: pointer;
               font-size: 12px;
             }
+
             .back-button:hover {
               color: $golden;
             }
           }
         }
       }
-
-
     }
   }
 
@@ -185,7 +184,7 @@
     display: flex;
     flex-direction: column;
     align-self: end;
-
+    gap: 20px;
     padding: 50px;
 
     .summary-confirmed-btn {

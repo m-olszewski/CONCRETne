@@ -8,11 +8,12 @@ import {
     Routes,
     Route,
 } from "react-router-dom";
-import {OrderForm} from "./components/Order";
+import {OrderForm} from "./components/OrderForm";
 import Basket from "./components/Basket";
 import UserReg from "./components/UserReg";
 import Summary from "./components/Summary";
 import Confirmed from "./components/Confirmed";
+import Test from "./components/test";
 
 
 
@@ -20,6 +21,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
         <Routes>
+            <Route path="/test" element={<Test />} />
+
             <Route path="/" element={<App />} />
             <Route path="order" element={<OrderForm />} />
             <Route path="order/basket" element={<Basket />} />
