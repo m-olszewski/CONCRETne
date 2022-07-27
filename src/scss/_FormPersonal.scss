@@ -1,0 +1,82 @@
+@import "colors";
+@import "fonts";
+
+.inputbox-content {
+  position: relative;
+  margin: 20px 0;
+  width: 100%;
+
+  input {
+    background-color: $dark;
+    width: 50%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(221, 208, 194, 0.07);
+    padding-left: 10px;
+
+    &:focus, &:valid {
+      & ~ label {
+        color: $golden;
+        //background-color: $dark;
+        transform: translateY(-20px);
+        font-size: 14px;
+        cursor: default;
+      }
+    }
+
+    &:focus {
+      & ~ .underline {
+        width: 50%;
+      }
+    }
+
+  }
+
+  label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    line-height: 30px;
+    color: $light;
+    cursor: text;
+    //transition: all 200ms ease-out;
+    z-index: 10;
+    padding-left: 5px;
+  }
+
+  .underline {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: $golden;
+    transition: all 200ms ease-out;
+  }
+
+}
+
+.error-message {
+  //display: block;
+
+  //margin-bottom: 10px;
+  margin-left: 20px;
+  color: red;
+  font-size: 12px;
+  //font-weight: 700;
+
+}
+.input-error {
+  color: #ff3737;
+  &:focus {
+    color: $light;
+  }
+}
+
+.hidden {
+  display: none;
+}

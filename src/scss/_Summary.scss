@@ -75,8 +75,10 @@
         tr {
           text-align: center;
 
+
           th {
             padding: 20px;
+
           }
         }
       }
@@ -87,8 +89,10 @@
         tr {
           text-align: center;
 
+
           td {
             padding: 20px;
+
           }
 
           .summary-table-img {
@@ -125,6 +129,10 @@
                   padding: 0;
                   font-size: 12px;
                 }
+
+                .spec-underline {
+                  border-bottom: 1px solid $light;
+                }
               }
             }
           }
@@ -132,53 +140,37 @@
           .summary-table-price {
             vertical-align: middle;
           }
-        }
-      }
-    }
-  }
 
-  .summary-main-2 {
-    padding: 20px;
-    border-bottom: 1px solid rgba(221, 208, 194, 0.07);
+          .address {
+            vertical-align: middle;
+            text-align: left;
+            padding-left: 50px;
 
-    .summary-address {
-
-      thead {
-        tr {
-          th {
-            //padding: 20px;
-            padding-bottom: 20px;
-
-            .spec-title {
-              font-weight: 500;
-            }
-          }
-        }
-      }
-
-      tbody {
-        tr {
-          td {
-            .address {
+            div {
               display: flex;
               flex-direction: column;
               gap: 7px;
               font-size: 14px;
+              line-height: 1;
+              text-align: left;
             }
+          }
 
-            .back-button {
-              cursor: pointer;
-              font-size: 12px;
-            }
+          .back-button {
+            cursor: pointer;
+            font-size: 12px;
+            float: right;
+          }
 
-            .back-button:hover {
-              color: $golden;
-            }
+          .back-button:hover {
+            color: $golden;
           }
         }
       }
+
     }
   }
+
 
   .summary-down {
     display: flex;
@@ -186,6 +178,15 @@
     align-self: end;
     gap: 20px;
     padding: 50px;
+
+    .summary-price {
+      font-size: 14px;
+
+      .price {
+        font-size: 16px;
+        font-weight: 700;
+      }
+    }
 
     .summary-confirmed-btn {
       text-align: center;

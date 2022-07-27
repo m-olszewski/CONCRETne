@@ -1,38 +1,124 @@
-import React from 'react';
-import '../scss/_Form.scss'
+import React, {useState} from 'react';
+import '../scss/_FormPersonal.scss'
 import {Link, useNavigate} from "react-router-dom";
 
 const Input = (props) => {
     return (
         <div className="inputbox-content">
-            <input id={props.id} name={props.name} type={props.type} required/>
+            <input id={props.id} name={props.name} type={props.type} value={props.value} onChange={props.onChange}
+                   className={`${props.err && "input-error"}`} required/>
             <label htmlFor={props.id}>{props.labelText}</label>
-            <span className="underline"></span>
+            {props.err &&
+                <span className="error-message">{props.err}</span>}
+            <span className="underline"/>
         </div>
     );
 };
 
-export const FormPersonal = () => {
+export const FormPersonal = ({values, setValues}) => {
+
+    // const [values, setValues] = useState({
+    //     name: '',
+    //     surname: '',
+    //     email: '',
+    //     phone: '',
+    //     city: '',
+    //     street: '',
+    //     postcode: ''
+    // });
+    const [errorMessages, setErrorMessages] = useState(null);
+    // const [success, setSuccess] = useState(false);
+
+    function handleChange(event) {
+        const {name, value} = event.target;
+
+        setValues(prevValues => ({
+            ...prevValues,
+            [name]: value,
+        }));
+    }
+
+    function validate(values) {
+        const errorMessages = {};
+
+        if (!values.name) {
+            errorMessages.name = 'Pole nie może być puste!';
+        } else if (values.name.length < 3) {
+            errorMessages.name = 'Podane imię jest zbyt krótkie!';
+        }
+
+        if (!values.surname) {
+            errorMessages.surname = 'Pole nie może być puste!';
+        } else if (values.surname.length < 3) {
+            errorMessages.surname = 'Podane nazwisko jest zbyt krótkie!';
+        }
+
+        if (!values.email) {
+            errorMessages.email = 'Pole nie może być puste!';
+        } else if (!values.email.match('[a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&\'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?')) {
+            errorMessages.email = 'Podany email jest nieprawidłowy!';
+        }
+
+        if (!values.phone) {
+            errorMessages.phone = 'Pole nie może być puste!';
+        } else if (!values.phone.match('(?:\\(?\\?)?(?:[-\\.\\(\\)\\s]*(\\d)){9}\\)?$')) {
+            errorMessages.phone = 'Podany numer jest nieprawidłowy!';
+        }
+
+        if (!values.city) {
+            errorMessages.city = 'Pole nie może być puste!';
+        } else if (values.city.length < 3) {
+            errorMessages.city = 'Podane miasto jest nieprawdłowe!';
+        }
+
+        if (!values.street) {
+            errorMessages.street = 'Pole nie może być puste!';
+        }
+
+        if (!values.postcode) {
+            errorMessages.postcode = 'Pole nie może być puste!';
+        } else if (!values.postcode.match('^[0-9]{2}-[0-9]{3}$')) {
+            errorMessages.postcode = 'Podany kod pocztowy jest nieprawidłowy!';
+        }
+
+        return Object.keys(errorMessages).length > 0
+            ? errorMessages
+            : null;
+    }
+
     const navigate = useNavigate();
     const handleSubmit = event => {
         event.preventDefault();
+        console.log(values);
+        const errorMessages = validate(values);
+        setErrorMessages(errorMessages);
+        if (!errorMessages) {
+            navigate('/order/basket/summary');
+        }
+        console.log(errorMessages);
 
-        navigate('/order/basket/summary');
     };
+
     return (
-        <form onSubmit={handleSubmit}>
+        <form noValidate onSubmit={handleSubmit}>
             <h2 className="order-form-title">Dane i adres</h2>
 
-            <Input id={"name"} name={"name"} type={"text"} labelText={"Imię"}/>
-            <Input id={"surname"} name={"surname"} type={"text"} labelText={"Nazwisko"}/>
-            <Input id={"email"} name={"email"} type={"email"} labelText={"E-Mail"}/>
-            <Input id={"phone"} name={"phone"} type={"text"} labelText={"Numer telefonu"}/>
-            <Input id={"city"} name={"city"} type={"text"} labelText={"Miasto"}/>
-            <Input id={"street"} name={"street"} type={"text"} labelText={"Ulica"}/>
-            <Input id={"postcode"} name={"postcode"} type={"text"} labelText={"Kod pocztowy"}/>
+            <Input id={"name"} name={"name"} type={"text"} labelText={"Imię"} value={values.name}
+                   onChange={handleChange} err={errorMessages?.name}/>
+            <Input id={"surname"} name={"surname"} type={"text"} labelText={"Nazwisko"} value={values.surname}
+                   onChange={handleChange} err={errorMessages?.surname}/>
+            <Input id={"email"} name={"email"} type={"email"} labelText={"E-Mail"} value={values.email}
+                   onChange={handleChange} err={errorMessages?.email}/>
+            <Input id={"phone"} name={"phone"} type={"text"} labelText={"Numer telefonu"} value={values.phone}
+                   onChange={handleChange} err={errorMessages?.phone}/>
+            <Input id={"city"} name={"city"} type={"text"} labelText={"Miasto"} value={values.city}
+                   onChange={handleChange} err={errorMessages?.city}/>
+            <Input id={"street"} name={"street"} type={"text"} labelText={"Ulica"} value={values.street}
+                   onChange={handleChange} err={errorMessages?.street}/>
+            <Input id={"postcode"} name={"postcode"} type={"text"} labelText={"Kod pocztowy"} value={values.postcode}
+                   onChange={handleChange} err={errorMessages?.postcode}/>
             <div className="userreg-down">
-                <input type="submit"  className="userreg-confirmed-btn" id="btn" value="Podsumowanie"/>
-                {/*<Link to="/order/basket/summary">Podsumowanie</Link>*/}
+                <input type="submit" className="userreg-confirmed-btn" id="btn" value="Podsumowanie"/>
             </div>
         </form>
     );

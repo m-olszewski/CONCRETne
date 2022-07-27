@@ -3,7 +3,8 @@ import '../scss/_Basket.scss'
 import React from 'react';
 import {Link} from "react-router-dom";
 
-const Basket = () => {
+
+const Basket = ({order}) => {
     return (
         <div className="App-basket container">
             <div className="basket-header">
@@ -18,7 +19,7 @@ const Basket = () => {
                 <table className="basket-table">
                     <thead>
                     <tr>
-                        <th></th>
+                        <th/>
                         <th>Produkt</th>
                         <th>Cena</th>
                         <th>Akcje</th>
@@ -30,29 +31,25 @@ const Basket = () => {
                         <td>
                             <div className="basket-table-img">miniaturka</div>
                         </td>
-
-
                         <td className="specifications">
-                            <span className="spec-title"><strong>Stolik kawowy</strong>  __marble__ __black__</span>
+                            <span className="spec-title"><strong>Stolik kawowy</strong> {order.material} {order.color}</span>
 
                             <div className="spec-specs">
                                 <div className="spec-group">
-                                    <span>Szerokość: </span>
-                                    <span>Długość: __length__</span>
-                                    <span>Wysokość: __height__</span>
+                                    <span>Szerokość: {order.width} cm</span>
+                                    <span>Długość: {order.length} cm</span>
+                                    <span>Wysokość: {order.height} cm</span>
                                 </div>
                                 <div className="spec-group">
-                                    <span>Blat: __material__</span>
-                                    <span>Grubość blatu: __thickness__</span>
-                                    <span>Kolor nóg: __color__</span>
+                                    <span>Blat: {order.material}</span>
+                                    <span>Grubość blatu: {order.thickness} cm</span>
+                                    <span>Kolor nóg: {order.color}</span>
                                 </div>
                             </div>
                         </td>
-
-
-                        <td className="basket-table-price">__price__</td>
+                        <td className="basket-table-price">{order.price} zł</td>
                         <td className="basket-table-actions">
-                            <span className="edit">edycja</span>
+                            <Link to="/order"><span className="edit">edycja</span></Link>
                             <span className="remove">usuń</span>
                         </td>
                     </tr>

@@ -3,7 +3,12 @@ import {Link} from "react-router-dom";
 import '../scss/_Summary.scss'
 
 
-const Summary = () => {
+const Summary = ({order, values}) => {
+    // const [order, setOrder] = props;
+const handleClick = () => {
+    console.log(order);
+    console.log(values)
+}
     return (
         <div className="App-summary container">
             <div className="summary-header">
@@ -23,8 +28,9 @@ const Summary = () => {
                     <thead>
                     <tr>
                         <th>Produkt</th>
-                        <th></th>
+                        <th/>
                         <th>Cena</th>
+                        <th className="spec-title">Adres zamówienia</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -33,43 +39,30 @@ const Summary = () => {
                             <div className="summary-table-img">miniaturka</div>
                         </td>
                         <td className="specifications">
-                            <span className="spec-title"><strong>Stolik kawowy</strong> __marble__ __black__</span>
+                            <span
+                                className="spec-title"><strong>Stolik kawowy</strong> {order.material} {order.color}</span>
 
                             <div className="spec-specs">
                                 <div className="spec-group">
-                                    <span>Szerokość: __width__</span>
-                                    <span>Długość: __length__</span>
-                                    <span>Wysokość: __height__</span>
+                                    <span>Szerokość: <span className="spec-underline">{order.width} cm</span></span>
+                                    <span>Długość: <span className="spec-underline">{order.length} cm</span></span>
+                                    <span>Wysokość: <span className="spec-underline">{order.height} cm</span></span>
                                 </div>
                                 <div className="spec-group">
-                                    <span>Blat: __material__</span>
-                                    <span>Grubość blatu: __thickness__</span>
-                                    <span>Kolor nóg: __color__</span>
+                                    <span>Blat: <span className="spec-underline">{order.material}</span></span>
+                                    <span>Grubość blatu: <span
+                                        className="spec-underline">{order.thickness} cm</span></span>
+                                    <span>Kolor nóg: <span className="spec-underline">{order.color}</span></span>
                                 </div>
                             </div>
                         </td>
-                        <td className="summary-table-price">__price__</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div className="summary-main-2">
-                <table className="summary-address">
-                    <thead>
-                    <tr>
-                        <th>
-                            <span className="spec-title">Adres zamówienia</span>
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>
-                            <div className="address">
-                                <span>__imie__nazwisko</span>
-                                <span>__ulica__</span>
-                                <span>__postcode__ , __miasto__</span>
-                                <span>_tel__</span>
+                        <td className="summary-table-price">{order.price} zł</td>
+                        <td className="address">
+                            <div>
+                                <span>{values.name} {values.surname}</span>
+                                <span>{values.street}</span>
+                                <span>{values.postcode}, {values.city}</span>
+                                <span>{values.phone}</span>
                             </div>
                             <Link to="/order/basket/userreg"><span className="back-button">zmień</span></Link>
                         </td>
@@ -77,9 +70,10 @@ const Summary = () => {
                     </tbody>
                 </table>
             </div>
+
             <div className="summary-down">
-                <div className="summary-price">Do zapłaty: <span className="price">__cena__</span></div>
-                <Link to="/order/confirmed/id_zamowienia" className="summary-confirmed-btn">Potwierdzam zakup</Link>
+                <div className="summary-price">Do zapłaty: <span className="price">{order.price} zł</span></div>
+                <Link onClick={handleClick} to="/order/confirmed/id_zamowienia" className="summary-confirmed-btn">Potwierdzam zakup</Link>
             </div>
         </div>
     );
