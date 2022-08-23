@@ -3,7 +3,7 @@ import {FormPersonal} from "./FormPersonal";
 import {Link} from "react-router-dom";
 import '../scss/_Userreg.scss'
 
-const UserReg = ({values, setValues}) => {
+const UserReg = ({order, setOrder}) => {
     return (
         <div className="App-userreg container">
             <div className="userreg-header">
@@ -16,7 +16,7 @@ const UserReg = ({values, setValues}) => {
                 <span className="actually">Rejestracja</span>
             </div>
             <div className="userreg-main">
-                <FormPersonal values={values} setValues={setValues}/>
+                <FormPersonal order={order} setOrder={setOrder}/>
             </div>
         </div>
     );

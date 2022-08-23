@@ -2,7 +2,8 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import '../scss/_Confirmed.scss';
 
-const Confirmed = () => {
+const Confirmed = ({order}) => {
+
     return (
         <div className="App-confirmed container">
             <div className="confirmed-header">
@@ -23,6 +24,8 @@ const Confirmed = () => {
                 <span>zamówienie zastało złożone.</span>
             </h2>
             <div className="confirmed-main">
+                <Link to="/admin" className="">Menadżer zamówień</Link>
+
             </div>
         </div>
     );

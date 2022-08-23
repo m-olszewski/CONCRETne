@@ -15,69 +15,59 @@ const Input = (props) => {
     );
 };
 
-export const FormPersonal = ({values, setValues}) => {
+export const FormPersonal = ({order, setOrder}) => {
 
-    // const [values, setValues] = useState({
-    //     name: '',
-    //     surname: '',
-    //     email: '',
-    //     phone: '',
-    //     city: '',
-    //     street: '',
-    //     postcode: ''
-    // });
     const [errorMessages, setErrorMessages] = useState(null);
-    // const [success, setSuccess] = useState(false);
 
     function handleChange(event) {
         const {name, value} = event.target;
 
-        setValues(prevValues => ({
+        setOrder(prevValues => ({
             ...prevValues,
             [name]: value,
         }));
     }
 
-    function validate(values) {
+    function validate(order) {
         const errorMessages = {};
 
-        if (!values.name) {
+        if (!order.name) {
             errorMessages.name = 'Pole nie może być puste!';
-        } else if (values.name.length < 3) {
+        } else if (order.name.length < 3) {
             errorMessages.name = 'Podane imię jest zbyt krótkie!';
         }
 
-        if (!values.surname) {
+        if (!order.surname) {
             errorMessages.surname = 'Pole nie może być puste!';
-        } else if (values.surname.length < 3) {
+        } else if (order.surname.length < 3) {
             errorMessages.surname = 'Podane nazwisko jest zbyt krótkie!';
         }
 
-        if (!values.email) {
+        if (!order.email) {
             errorMessages.email = 'Pole nie może być puste!';
-        } else if (!values.email.match('[a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&\'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?')) {
+        } else if (!order.email.match('[a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&\'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?')) {
             errorMessages.email = 'Podany email jest nieprawidłowy!';
         }
 
-        if (!values.phone) {
+        if (!order.phone) {
             errorMessages.phone = 'Pole nie może być puste!';
-        } else if (!values.phone.match('(?:\\(?\\?)?(?:[-\\.\\(\\)\\s]*(\\d)){9}\\)?$')) {
+        } else if (!order.phone.match('(?:\\(?\\?)?(?:[-\\.\\(\\)\\s]*(\\d)){9}\\)?$')) {
             errorMessages.phone = 'Podany numer jest nieprawidłowy!';
         }
 
-        if (!values.city) {
+        if (!order.city) {
             errorMessages.city = 'Pole nie może być puste!';
-        } else if (values.city.length < 3) {
+        } else if (order.city.length < 3) {
             errorMessages.city = 'Podane miasto jest nieprawdłowe!';
         }
 
-        if (!values.street) {
+        if (!order.street) {
             errorMessages.street = 'Pole nie może być puste!';
         }
 
-        if (!values.postcode) {
+        if (!order.postcode) {
             errorMessages.postcode = 'Pole nie może być puste!';
-        } else if (!values.postcode.match('^[0-9]{2}-[0-9]{3}$')) {
+        } else if (!order.postcode.match('^[0-9]{2}-[0-9]{3}$')) {
             errorMessages.postcode = 'Podany kod pocztowy jest nieprawidłowy!';
         }
 
@@ -89,8 +79,8 @@ export const FormPersonal = ({values, setValues}) => {
     const navigate = useNavigate();
     const handleSubmit = event => {
         event.preventDefault();
-        console.log(values);
-        const errorMessages = validate(values);
+        console.log(order);
+        const errorMessages = validate(order);
         setErrorMessages(errorMessages);
         if (!errorMessages) {
             navigate('/order/basket/summary');
@@ -103,19 +93,19 @@ export const FormPersonal = ({values, setValues}) => {
         <form noValidate onSubmit={handleSubmit}>
             <h2 className="order-form-title">Dane i adres</h2>
 
-            <Input id={"name"} name={"name"} type={"text"} labelText={"Imię"} value={values.name}
+            <Input id={"name"} name={"name"} type={"text"} labelText={"Imię"} value={order.name}
                    onChange={handleChange} err={errorMessages?.name}/>
-            <Input id={"surname"} name={"surname"} type={"text"} labelText={"Nazwisko"} value={values.surname}
+            <Input id={"surname"} name={"surname"} type={"text"} labelText={"Nazwisko"} value={order.surname}
                    onChange={handleChange} err={errorMessages?.surname}/>
-            <Input id={"email"} name={"email"} type={"email"} labelText={"E-Mail"} value={values.email}
+            <Input id={"email"} name={"email"} type={"email"} labelText={"E-Mail"} value={order.email}
                    onChange={handleChange} err={errorMessages?.email}/>
-            <Input id={"phone"} name={"phone"} type={"text"} labelText={"Numer telefonu"} value={values.phone}
+            <Input id={"phone"} name={"phone"} type={"text"} labelText={"Numer telefonu"} value={order.phone}
                    onChange={handleChange} err={errorMessages?.phone}/>
-            <Input id={"city"} name={"city"} type={"text"} labelText={"Miasto"} value={values.city}
+            <Input id={"city"} name={"city"} type={"text"} labelText={"Miasto"} value={order.city}
                    onChange={handleChange} err={errorMessages?.city}/>
-            <Input id={"street"} name={"street"} type={"text"} labelText={"Ulica"} value={values.street}
+            <Input id={"street"} name={"street"} type={"text"} labelText={"Ulica"} value={order.street}
                    onChange={handleChange} err={errorMessages?.street}/>
-            <Input id={"postcode"} name={"postcode"} type={"text"} labelText={"Kod pocztowy"} value={values.postcode}
+            <Input id={"postcode"} name={"postcode"} type={"text"} labelText={"Kod pocztowy"} value={order.postcode}
                    onChange={handleChange} err={errorMessages?.postcode}/>
             <div className="userreg-down">
                 <input type="submit" className="userreg-confirmed-btn" id="btn" value="Podsumowanie"/>

@@ -1,0 +1,101 @@
+@import "colors";
+@import "fonts";
+
+.summary-main {
+  padding-top: 50px;
+
+  .summary-table {
+    width: 100%;
+
+    thead {
+      border-bottom: 1px solid rgba(221, 208, 194, 0.07);
+
+      tr {
+        text-align: center;
+
+
+        th {
+          padding: 20px;
+
+        }
+      }
+    }
+
+    tbody {
+      border-bottom: 1px solid rgba(221, 208, 194, 0.07);
+
+      tr {
+        text-align: center;
+        border-bottom: 1px solid rgba(221, 208, 194, 0.07);
+
+
+        td {
+          padding: 20px;
+
+        }
+
+        .summary-table-img {
+          background-color: $graybeige;
+          width: 125px;
+          height: 125px;
+        }
+
+        .specifications {
+          vertical-align: middle;
+          text-align: left;
+
+          .spec-title {
+            border-bottom: 1px solid $light;
+            margin-bottom: 20px;
+            display: inline-block;
+
+            strong {
+              color: $golden;
+            }
+          }
+
+          .spec-specs {
+            display: flex;
+            gap: 100px;
+
+            .spec-group {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              gap: 7px;
+
+              span {
+                padding: 0;
+                font-size: 12px;
+              }
+
+              .spec-underline {
+                border-bottom: 1px solid $light;
+              }
+            }
+          }
+        }
+
+        .summary-table-price {
+          vertical-align: middle;
+        }
+
+        .address, .manager-actions {
+          vertical-align: middle;
+          text-align: left;
+          padding-left: 50px;
+
+          div {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            font-size: 14px;
+            line-height: 1;
+            text-align: left;
+          }
+        }
+      }
+    }
+
+  }
+}

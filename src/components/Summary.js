@@ -3,12 +3,25 @@ import {Link} from "react-router-dom";
 import '../scss/_Summary.scss'
 
 
-const Summary = ({order, values}) => {
-    // const [order, setOrder] = props;
+const Summary = ({order, setOrder}) => {
 const handleClick = () => {
     console.log(order);
-    console.log(values)
+    fetch('http://localhost:3005/orders', {
+        method: 'POST',
+        body: JSON.stringify(order),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`${response.status} (${response.statusText})`);
+            }
+            return response;
+        })
+        .then(response => response.json());
 }
+
     return (
         <div className="App-summary container">
             <div className="summary-header">
@@ -59,10 +72,10 @@ const handleClick = () => {
                         <td className="summary-table-price">{order.price} zł</td>
                         <td className="address">
                             <div>
-                                <span>{values.name} {values.surname}</span>
-                                <span>{values.street}</span>
-                                <span>{values.postcode}, {values.city}</span>
-                                <span>{values.phone}</span>
+                                <span>{order.name} {order.surname}</span>
+                                <span>{order.street}</span>
+                                <span>{order.postcode}, {order.city}</span>
+                                <span>{order.phone}</span>
                             </div>
                             <Link to="/order/basket/userreg"><span className="back-button">zmień</span></Link>
                         </td>

@@ -3,8 +3,8 @@ import '../scss/_Basket.scss'
 import React from 'react';
 import {Link} from "react-router-dom";
 
-
 const Basket = ({order}) => {
+    console.log(order);
     return (
         <div className="App-basket container">
             <div className="basket-header">
@@ -50,7 +50,7 @@ const Basket = ({order}) => {
                         <td className="basket-table-price">{order.price} zł</td>
                         <td className="basket-table-actions">
                             <Link to="/order"><span className="edit">edycja</span></Link>
-                            <span className="remove">usuń</span>
+                            {/*<span className="remove">usuń</span>*/}
                         </td>
                     </tr>
                     </tbody>

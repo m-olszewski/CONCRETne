@@ -7,6 +7,7 @@ import Basket from "./Basket";
 import UserReg from "./UserReg";
 import Summary from "./Summary";
 import Confirmed from "./Confirmed";
+import OrdersManager from "./OrdersManager";
 
 const initialOrderValues = {
     width: '',
@@ -15,23 +16,20 @@ const initialOrderValues = {
     material: '',
     thickness: '',
     color: '',
-    price: ''
+    price: '',
+    name: '',
+    surname: '',
+    email: '',
+    phone: '',
+    city: '',
+    street: '',
+    postcode: ''
 };
-
-
 
 function App() {
 
     const [order, setOrder] = useState(initialOrderValues);
-    const [values, setValues] = useState({
-        name: '',
-        surname: '',
-        email: '',
-        phone: '',
-        city: '',
-        street: '',
-        postcode: ''
-    });
+
 
     return (
         <BrowserRouter>
@@ -39,10 +37,11 @@ function App() {
                 <Route path="/" element={<LandingPage />} />
 
                 <Route path="/order" element={<OrderForm order={order} setOrder={setOrder}/>}/>
-                <Route path="/order/basket" element={<Basket order={order}/>}/>
-                <Route path="/order/basket/userreg" element={<UserReg values={values} setValues={setValues}/>}/>
-                <Route path="/order/basket/summary" element={<Summary order={order} values={values} setValues={setValues}/>}/>
-                <Route path="/order/confirmed/id_zamowienia" element={<Confirmed/>}/>
+                <Route path={`/order/basket`} element={<Basket order={order}/>}/>
+                <Route path="/order/basket/userreg" element={<UserReg order={order} setOrder={setOrder}/>}/>
+                <Route path="/order/basket/summary" element={<Summary order={order} setOrder={setOrder}/>}/>
+                <Route path="/order/confirmed/id_zamowienia" element={<Confirmed order={order}/>}/>
+                <Route path="/admin" element={<OrdersManager order={order}/>}/>
             </Routes>
         </BrowserRouter>
     )
