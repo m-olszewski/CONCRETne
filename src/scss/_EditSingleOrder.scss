@@ -1,0 +1,102 @@
+@import "colors";
+@import "fonts";
+
+.edit-specifications {
+  vertical-align: middle;
+  text-align: left;
+  border: 1px solid $golden;
+
+  .edit-spec-title {
+    border-bottom: 1px solid $light;
+    margin-bottom: 20px;
+    display: inline-block;
+
+    strong {
+      color: $golden;
+    }
+  }
+
+  .edit-spec-specs {
+    display: flex;
+    gap: 100px;
+
+    .edit-spec-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 7px;
+
+      span {
+        padding: 0;
+        font-size: 12px;
+      }
+
+      .edit-spec-underline {
+        border-bottom: 1px solid $light;
+      }
+    }
+  }
+}
+
+.edit-summary-table-price {
+  vertical-align: middle;
+  border: 1px solid $golden;
+}
+
+.edit-address, .edit-manager-actions {
+  vertical-align: middle;
+  text-align: left;
+  border: 1px solid $golden;
+}
+
+.edit-address-box, .edit-manager-actions-box {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 14px;
+  line-height: 1;
+  text-align: left;
+  margin-left: 30px;
+}
+
+.edit-manager-actions-btn {
+  cursor: pointer;
+
+  &:hover {
+    color: $golden;
+  }
+}
+
+.edit-address-span {
+  width: 285px;
+
+}
+
+.inline {
+  max-width: 285px;
+  display: block;
+}
+
+input {
+  display: inline;
+  max-width: 285px;
+  //background-color: #DDD0C2;
+  cursor: pointer;
+
+  &:focus {
+    cursor: text;
+    color: $golden;
+    border-bottom: 1px solid $golden;
+
+  }
+}
+
+.edit-spec-underline select {
+  cursor: pointer;
+  text-align: center;
+
+  &:focus {
+    color: $golden;
+    background-color: $dark;
+  }
+}

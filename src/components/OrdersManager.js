@@ -2,8 +2,6 @@ import React, {useEffect, useState} from 'react';
 import '../scss/_OrderManager.scss'
 import SingleOrder from "./SingleOrder";
 
-
-
 const OrdersManager = () => {
     const url = 'http://localhost:3005/orders';
     const [allOrders, setAllOrders] = useState([]);
@@ -54,21 +52,12 @@ const OrdersManager = () => {
             })
             .then(response => response.json())
             .then(updatedSingleOrder => setAllOrders(allOrders => allOrders.map(singleOrder => singleOrder.id === id ? updatedSingleOrder : singleOrder)));
-
     }
 
-    // const [isEditing, setIsEditing] = useState(false);
-    //
-    // function handleEditButtonClick() {
-    //     setIsEditing(true);
-    // }
-
-
     if (allOrders.length === 0) return null;
-console.log(allOrders)
+    // console.log(allOrders)
 
     return (
-
         <div className="summary-main">
             <table className="summary-table">
                 <thead>
@@ -90,16 +79,12 @@ console.log(allOrders)
                         <td>
                             <div className="summary-table-img">ID: {singleOrder.id}</div>
                         </td>
-
-                        <SingleOrder singleOrder={singleOrder} onDelete={deleteOrder} onUpdate={updateOrder} />
-
-                        </tr>
+                        <SingleOrder singleOrder={singleOrder} onDelete={deleteOrder} onUpdate={updateOrder}/>
+                    </tr>
                 ))}
                 </tbody>
             </table>
-
         </div>
-
     );
 };
 

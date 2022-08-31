@@ -3,8 +3,6 @@ import '../scss/_Opening.scss'
 const Opening = () => {
     return (
 <>
-
-
         <div className="App-opening">
             <div className="maindiv">
 

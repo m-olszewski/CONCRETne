@@ -1,14 +1,14 @@
 {
   "orders": [
     {
-      "width": "40",
+      "width": "60",
       "length": "60",
       "height": "35",
       "material": "Beton",
       "thickness": "1",
       "color": "czarny",
-      "price": 1169,
-      "name": "Jan",
+      "price": 1199,
+      "name": "dfhhfss",
       "surname": "Kowalski",
       "email": "jan.kowalski@mail.pl",
       "phone": "123465798",
@@ -18,13 +18,13 @@
       "id": 1
     },
     {
-      "width": "50",
-      "length": "70",
-      "height": "40",
-      "material": "Marmur",
-      "thickness": "3",
-      "color": "chrom",
-      "price": 2961,
+      "width": "60",
+      "length": "80",
+      "height": "45",
+      "material": "Beton",
+      "thickness": "4",
+      "color": "złoty",
+      "price": 1327,
       "name": "Michał",
       "surname": "Olszewski",
       "email": "michal.e.olszewski@gmail.com",
@@ -100,23 +100,6 @@
       "city": "Testowe miasto",
       "street": "Testowa ulica",
       "postcode": "00-000",
-      "id": 6
-    },
-    {
-      "width": "40",
-      "length": "70",
-      "height": "45",
-      "material": "Beton",
-      "thickness": "5",
-      "color": "biały",
-      "price": 1262,
-      "name": "Testowa nazwa",
-      "surname": "testowe nazwisko",
-      "email": "test@test.pl",
-      "phone": "123456798",
-      "city": "Testowe miasto",
-      "street": "Testowa ulica",
-      "postcode": "00-000",
       "id": 7
     },
     {
@@ -152,40 +135,6 @@
       "street": "Testowa ulica",
       "postcode": "00-000",
       "id": 9
-    },
-    {
-      "width": "40",
-      "length": "70",
-      "height": "45",
-      "material": "Beton",
-      "thickness": "5",
-      "color": "biały",
-      "price": 1262,
-      "name": "Testowa nazwa",
-      "surname": "testowe nazwisko",
-      "email": "test@test.pl",
-      "phone": "123456798",
-      "city": "Testowe miasto",
-      "street": "Testowa ulica",
-      "postcode": "00-000",
-      "id": 10
-    },
-    {
-      "width": "50",
-      "length": "80",
-      "height": "40",
-      "material": "Dąb",
-      "thickness": "2",
-      "color": "złoty",
-      "price": 1395,
-      "name": "Testowa nazwa4",
-      "surname": "dfhdxfht",
-      "email": "test@test.pl",
-      "phone": "123456798",
-      "city": "Testowe miasto",
-      "street": "Testowa ulica",
-      "postcode": "00-000",
-      "id": 11
     }
   ]
 }

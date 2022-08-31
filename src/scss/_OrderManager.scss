@@ -1,10 +1,6 @@
 @import "colors";
 @import "fonts";
 
-.root {
-  position: relative;
-}
-
 .summary-main {
   padding-top: 50px;
 
@@ -17,10 +13,8 @@
       tr {
         text-align: center;
 
-
         th {
           padding: 20px;
-
         }
       }
     }
@@ -31,9 +25,10 @@
       tr {
         text-align: center;
         border-bottom: 1px solid rgba(221, 208, 194, 0.07);
+        position: relative;
 
         &:nth-child(2n) {
-          background-color: lighten($dark,2);
+          background-color: lighten($dark, 2);
         }
 
         &:hover {
@@ -42,7 +37,6 @@
 
         td {
           padding: 20px;
-
         }
 
         .summary-table-img {
@@ -107,7 +101,6 @@
         }
       }
     }
-
   }
 
   button {
@@ -118,31 +111,37 @@
     }
   }
 
-
-  .edit-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 99;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
-
-  }
-
-  .edit-ord {
+  .manager-actions div .alert {
     position: absolute;
-    top: 50%;
     left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
-    width: 800px;
-    height: 400px;
-    z-index: 999;
-    border: 7px solid $golden;
-    background-color: $dark;
+    width: 250px;
+    height: 80px;
+    background-color: $graybeige;
+    border: 5px solid $golden;
+    display: flex;
+    justify-content: center;
 
+    .alert-inner {
+      text-align: center;
+      color: $dark;
 
+      span {
+        font-weight: 600;
+        font-size: 18px;
+      }
+    }
   }
 
+  .address div span .inline {
+    display: inline;
 
+    input {
+      display: inline;
+      color: red;
+      background-color: #DDD0C2;
+      width: fit-content;
+    }
+  }
 }

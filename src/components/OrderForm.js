@@ -104,7 +104,6 @@ export const OrderForm = ({order, setOrder}) => {
         }
     };
 
-
     return (
         <div className="order-main container">
             <div className="order-header">
@@ -113,7 +112,6 @@ export const OrderForm = ({order, setOrder}) => {
                     <span className="separator">&#8811;</span>
                     <span className="actually">Zamówienie</span>
                 </div>
-                {/*<span>koszyk:</span>*/}
             </div>
             <h2 className="order-left-title">Skonfiguruj swój wymarzony stolik</h2>
             <p className="order-text">Wybierz rozmiar, rodzaj i kolor nóg oraz blatu.</p>

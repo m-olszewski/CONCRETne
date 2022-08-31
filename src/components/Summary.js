@@ -1,10 +1,8 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import '../scss/_Summary.scss'
-import {useState} from "react";
 
-
-const Summary = ({order, setOrder}) => {
+const Summary = ({order}) => {
 
     const addOrder = () => {
         fetch('http://localhost:3005/orders', {

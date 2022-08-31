@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import '../scss/_FormPersonal.scss'
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const Input = (props) => {
     return (

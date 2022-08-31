@@ -2,38 +2,36 @@ import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import EditOrder from "./EditOrder";
 
-
 const SingleOrder = ({singleOrder, onDelete, onUpdate}) => {
     const [isEditing, setIsEditing] = useState(false);
+    const [showConfirmation, setShowConfirmation] = useState(false);
 
     function handleEditButtonClick() {
         setIsEditing(true);
     }
 
     function handleUpdate(editedOrder, event) {
-        console.log('submit')
         // event.preventDefault();
-
         setIsEditing(false);
         onUpdate(singleOrder.id, editedOrder);
     }
 
     function handleDeleteButtonClick() {
-        onDelete(singleOrder.id);
+        setShowConfirmation(true);
+        setTimeout(() => {
+            onDelete(singleOrder.id);
+            setShowConfirmation(false);
+        }, 1000)
     }
-
 
     return (<>
             {isEditing ? (
-
-                    <EditOrder  setIsEditing={setIsEditing} isEditing={isEditing} onUpdate={onUpdate} singleOrder={singleOrder} onSubmit={handleUpdate}/>
-
-                ) :(
+                <EditOrder setIsEditing={setIsEditing} isEditing={isEditing} onUpdate={onUpdate}
+                           singleOrder={singleOrder} onSubmit={handleUpdate}/>
+            ) : (
                 <>
                     <td className="specifications">
-                            <span
-                                className="spec-title"><strong>Stolik kawowy</strong> {singleOrder.material} {singleOrder.color}</span>
-
+                        <span className="spec-title"><strong>Stolik kawowy</strong> {singleOrder.material} {singleOrder.color}</span>
                         <div className="spec-specs">
                             <div className="spec-group">
                                 <span>Szerokość: <span className="spec-underline">{singleOrder.width} cm</span></span>
@@ -70,14 +68,13 @@ const SingleOrder = ({singleOrder, onDelete, onUpdate}) => {
                         <div>
                             <button onClick={handleDeleteButtonClick}>Usuń</button>
                             <button onClick={handleEditButtonClick}>Edytuj</button>
-                            <>
-
-
-                            </>
+                            {showConfirmation && <div className='alert'>
+                                <div className='alert-inner'>Zamówienie <span># {singleOrder.id}</span> usunięto
+                                    poprawnie
+                                </div>
+                            </div>}
                         </div>
                     </td>
-
-
                 </>)}
         </>
     );

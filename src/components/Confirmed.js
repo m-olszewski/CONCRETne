@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import '../scss/_Confirmed.scss';
 
-const Confirmed = ({order}) => {
+const Confirmed = () => {
 
     return (
         <div className="App-confirmed container">

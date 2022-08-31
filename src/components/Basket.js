@@ -50,7 +50,6 @@ const Basket = ({order}) => {
                         <td className="basket-table-price">{order.price} zł</td>
                         <td className="basket-table-actions">
                             <Link to="/order"><span className="edit">edycja</span></Link>
-                            {/*<span className="remove">usuń</span>*/}
                         </td>
                     </tr>
                     </tbody>
