@@ -1,26 +1,31 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import '../scss/_Summary.scss'
+import {useState} from "react";
 
 
 const Summary = ({order, setOrder}) => {
-const handleClick = () => {
-    console.log(order);
-    fetch('http://localhost:3005/orders', {
-        method: 'POST',
-        body: JSON.stringify(order),
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`${response.status} (${response.statusText})`);
-            }
-            return response;
+
+    const addOrder = () => {
+        fetch('http://localhost:3005/orders', {
+            method: 'POST',
+            body: JSON.stringify(order),
+            headers: {
+                'Content-Type': 'application/json',
+            },
         })
-        .then(response => response.json());
-}
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`${response.status} (${response.statusText})`);
+                }
+                return response;
+            })
+            .then(response => response.json());
+    }
+
+    const handleClick = () => {
+        addOrder()
+    }
 
     return (
         <div className="App-summary container">
@@ -86,7 +91,8 @@ const handleClick = () => {
 
             <div className="summary-down">
                 <div className="summary-price">Do zapłaty: <span className="price">{order.price} zł</span></div>
-                <Link onClick={handleClick} to="/order/confirmed/id_zamowienia" className="summary-confirmed-btn">Potwierdzam zakup</Link>
+                <Link onClick={handleClick} to="/order/confirmed/id_zamowienia" className="summary-confirmed-btn">Potwierdzam
+                    zakup</Link>
             </div>
         </div>
     );

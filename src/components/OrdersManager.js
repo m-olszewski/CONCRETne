@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {Link} from "react-router-dom";
 import '../scss/_OrderManager.scss'
+import SingleOrder from "./SingleOrder";
+
+
 
 const OrdersManager = () => {
     const url = 'http://localhost:3005/orders';
-    const [orders, setOrders] = useState([]);
+    const [allOrders, setAllOrders] = useState([]);
 
     useEffect(() => {
         loadOrders();
@@ -19,13 +21,13 @@ const OrdersManager = () => {
                 return response;
             })
             .then(response => response.json())
-            .then(setOrders);
+            .then(setAllOrders);
     }
 
     const deleteOrder = (id) => {
         fetch(`http://localhost:3005/orders/${id}`, {
             method: 'DELETE',
-           })
+        })
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`${response.status} (${response.statusText})`);
@@ -33,7 +35,26 @@ const OrdersManager = () => {
                 return response;
             })
             .then(response => response.json())
-            .then(() => setOrders(orders => orders.filter(ord => ord.id !== id)));
+            .then(() => setAllOrders(allOrders => allOrders.filter(singleOrder => singleOrder.id !== id)));
+    }
+
+    const updateOrder = (id, singleOrder) => {
+        fetch(`http://localhost:3005/orders/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify(singleOrder),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`${response.status} (${response.statusText})`);
+                }
+                return response;
+            })
+            .then(response => response.json())
+            .then(updatedSingleOrder => setAllOrders(allOrders => allOrders.map(singleOrder => singleOrder.id === id ? updatedSingleOrder : singleOrder)));
+
     }
 
     // const [isEditing, setIsEditing] = useState(false);
@@ -41,12 +62,10 @@ const OrdersManager = () => {
     // function handleEditButtonClick() {
     //     setIsEditing(true);
     // }
-    function handleDeleteButtonClick(ord) {
-       // deleteOrder(ord.id);
-        console.log(ord.id)
-    }
 
-    if (orders.length === 0) return null;
+
+    if (allOrders.length === 0) return null;
+console.log(allOrders)
 
     return (
 
@@ -63,63 +82,24 @@ const OrdersManager = () => {
                 </tr>
                 </thead>
                 <tbody>
-                {orders.map((ord, i) => (
-                    <tr key={ord.id}>
+                {allOrders.map((singleOrder, i) => (
+                    <tr key={singleOrder.id}>
                         <td>
-                            {i+1}
+                            {i + 1}
                         </td>
                         <td>
-                            <div className="summary-table-img">ID: {ord.id}</div>
+                            <div className="summary-table-img">ID: {singleOrder.id}</div>
                         </td>
 
-                        <td className="specifications">
-                            <span
-                                className="spec-title"><strong>Stolik kawowy</strong> {ord.material} {ord.color}</span>
+                        <SingleOrder singleOrder={singleOrder} onDelete={deleteOrder} onUpdate={updateOrder} />
 
-                            <div className="spec-specs">
-                                <div className="spec-group">
-                                    <span>Szerokość: <span className="spec-underline">{ord.width} cm</span></span>
-                                    <span>Długość: <span className="spec-underline">{ord.length} cm</span></span>
-                                    <span>Wysokość: <span className="spec-underline">{ord.height} cm</span></span>
-                                </div>
-                                <div className="spec-group">
-                                    <span>Blat: <span className="spec-underline">{ord.material}</span></span>
-                                    <span>Grubość blatu: <span
-                                        className="spec-underline">{ord.thickness} cm</span></span>
-                                    <span>Kolor nóg: <span className="spec-underline">{ord.color}</span></span>
-                                </div>
-                            </div>
-                        </td>
-                        <td className="summary-table-price">{ord.price} zł</td>
-                        <td className="address">
-                            <div>
-                                <span>{ord.name} {ord.surname}</span>
-                                <span>{ord.street}</span>
-                                <span>{ord.postcode}, {ord.city}</span>
-                                <span>{ord.phone}</span>
-                                <Link
-                                    to='#'
-                                    onClick={(e) => {
-                                        window.location.href = `mailto:${ord.email}`;
-                                        e.preventDefault();
-                                    }}
-                                >
-                                    {ord.email}
-                                </Link>
-                            </div>
-                        </td>
-                        <td className="manager-actions">
-                            <div>
-                                <button onClick={handleDeleteButtonClick}>Usuń</button>
-                                <span>Edytuj</span>
-                            </div>
-                        </td>
-
-                    </tr>
+                        </tr>
                 ))}
                 </tbody>
             </table>
+
         </div>
+
     );
 };
 

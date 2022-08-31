@@ -41,7 +41,7 @@ function App() {
                 <Route path="/order/basket/userreg" element={<UserReg order={order} setOrder={setOrder}/>}/>
                 <Route path="/order/basket/summary" element={<Summary order={order} setOrder={setOrder}/>}/>
                 <Route path="/order/confirmed/id_zamowienia" element={<Confirmed order={order}/>}/>
-                <Route path="/admin" element={<OrdersManager order={order}/>}/>
+                <Route path="/admin" element={<OrdersManager order={order} setOrder={setOrder}/>}/>
             </Routes>
         </BrowserRouter>
     )

@@ -89,11 +89,13 @@ export const OrderForm = ({order, setOrder}) => {
         }
     }
 
-    order.price = Math.ceil(tableTopCost() + framePrice() + paintCost()) + 1000;
     const navigate = useNavigate();
+    order.price = Math.ceil(tableTopCost() + framePrice() + paintCost()) + 1000;
 
     const handleSubmit = event => {
+
         event.preventDefault();
+        console.log(allValues())
         if (!allValues()) {
             setShowSpan(true)
         } else {
